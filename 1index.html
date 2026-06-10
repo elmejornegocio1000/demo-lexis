@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Jorgelina Farías — Abogada · Termas de Río Hondo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul:        #0D1B3E;
+    --azul-medio:  #162447;
+    --azul-claro:  #1F4068;
+    --dorado:      #C9A84C;
+    --dorado-claro:#E2C97E;
+    --dorado-opaco:rgba(201,168,76,0.12);
+    --dorado-linea:rgba(201,168,76,0.3);
+    --blanco:      #FDFBF7;
+    --crema:       #F5F0E8;
+    --gris:        #7A7468;
+    --texto:       #2C2820;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Raleway', sans-serif; color: var(--texto); background: var(--blanco); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,62,0.97); backdrop-filter: blur(10px);
+    padding: 1rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--blanco); font-weight: 600; letter-spacing: 0.05em; }
+  .nav-logo span { color: var(--dorado); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.72rem; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+  .nav-links a:hover { color: var(--dorado); }
+  .nav-cta { background: var(--dorado); color: var(--azul); font-size: 0.68rem; font-weight: 700; padding: 0.6rem 1.4rem; text-decoration: none; transition: background 0.3s; letter-spacing: 0.1em; text-transform: uppercase; }
+  .nav-cta:hover { background: var(--dorado-claro); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    background: var(--azul);
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(31,64,104,0.4) 0%, transparent 50%);
+  }
+  /* Patrón de fondo sutil */
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(201,168,76,0.02) 40px,
+      rgba(201,168,76,0.02) 41px
+    );
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 3rem 6rem 5rem;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 2rem;
+  }
+  .hero-eyebrow::before { content: ''; width: 2.5rem; height: 1px; background: var(--dorado); display: inline-block; }
+  .hero-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4.5vw, 4.2rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--blanco); margin-bottom: 0.5rem;
+  }
+  .hero-titulo em { font-style: italic; color: var(--dorado-claro); display: block; }
+  .hero-cargo {
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-cargo::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--dorado-linea), transparent); }
+  .hero-bajada {
+    font-size: 0.9rem; line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+    max-width: 42ch; margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+  .hero-slogan {
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--dorado); margin-bottom: 3rem;
+    font-weight: 600;
+  }
+  .hero-slogan .sep { color: rgba(201,168,76,0.4); }
+  .hero-acciones { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-dorado { background: var(--dorado); color: var(--azul); font-size: 0.72rem; font-weight: 700; padding: 0.9rem 2rem; text-decoration: none; transition: all 0.3s; letter-spacing: 0.1em; text-transform: uppercase; }
+  .btn-dorado:hover { background: var(--dorado-claro); transform: translateY(-2px); }
+  .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.75); font-size: 0.72rem; padding: 0.9rem 2rem; text-decoration: none; transition: all 0.3s; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+  .btn-outline:hover { border-color: var(--dorado); color: var(--dorado); }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: linear-gradient(160deg, var(--azul-claro), var(--azul-medio));
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .hero-right::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(201,168,76,0.1), transparent 60%); }
+  .hero-overlay { position: absolute; top: 0; left: 0; bottom: 0; width: 80px; background: linear-gradient(to right, var(--azul), transparent); z-index: 3; }
+  .hero-foto-wrap {
+    width: 80%; aspect-ratio: 3/4; position: relative; z-index: 2;
+    background: linear-gradient(160deg, var(--azul-claro), var(--azul));
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;
+  }
+  .hero-foto-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--azul) 0%, transparent 35%); }
+  .hero-stats {
+    position: absolute; bottom: 3rem; right: 2.5rem;
+    z-index: 4; display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-end;
+  }
+  .stat { text-align: right; }
+  .stat-n { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dorado); line-height: 1; font-weight: 600; }
+  .stat-l { font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
+  .hero-ubicacion {
+    position: absolute; bottom: 3rem; left: 3rem;
+    z-index: 4;
+    display: flex; align-items: center; gap: 0.8rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.6rem 1.2rem;
+    font-size: 0.7rem; color: rgba(255,255,255,0.7);
+  }
+  .hero-ubicacion span { color: var(--dorado); }
+
+  /* FRANJA */
+  .franja {
+    background: var(--dorado);
+    padding: 1.1rem 4rem;
+    display: flex; align-items: center; justify-content: center;
+    gap: 2.5rem; flex-wrap: wrap;
+  }
+  .franja-item { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--azul); font-weight: 700; }
+  .franja-sep { width: 4px; height: 4px; background: rgba(13,27,62,0.25); border-radius: 50%; }
+
+  /* SERVICIOS */
+  #servicios { padding: 7rem 5rem; background: var(--blanco); position: relative; }
+  #servicios::before { content: ''; position: absolute; top: 0; left: 5rem; right: 5rem; height: 1px; background: linear-gradient(to right, transparent, var(--dorado-linea), transparent); }
+  .sec-eyebrow { font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--dorado); margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; font-weight: 600; }
+  .sec-eyebrow::before { content: ''; width: 2rem; height: 1px; background: var(--dorado); display: inline-block; }
+  .sec-titulo { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; color: var(--azul); line-height: 1.2; margin-bottom: 1rem; max-width: 22ch; }
+  .sec-titulo em { font-style: italic; color: var(--azul-claro); }
+  .sec-intro { font-size: 0.88rem; line-height: 1.9; color: var(--gris); max-width: 55ch; margin-bottom: 4rem; font-weight: 300; }
+  .servicios-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .serv-card { border: 1px solid #E8E2D8; padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: all 0.3s; border-radius: 2px; }
+  .serv-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--dorado); transition: width 0.4s; }
+  .serv-card:hover { border-color: var(--dorado-linea); box-shadow: 0 8px 30px rgba(13,27,62,0.06); }
+  .serv-card:hover::after { width: 100%; }
+  .serv-emoji { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
+  .serv-nombre { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--azul); margin-bottom: 0.7rem; }
+  .serv-desc { font-size: 0.78rem; line-height: 1.8; color: var(--gris); }
+
+  /* SOBRE */
+  #sobre { padding: 7rem 5rem; background: var(--crema); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; overflow: hidden; }
+  #sobre::before { content: 'NS'; position: absolute; bottom: -3rem; right: -1rem; font-family: 'Playfair Display', serif; font-size: 18rem; color: rgba(201,168,76,0.05); font-weight: 700; pointer-events: none; }
+  .sobre-foto { position: relative; }
+  .sobre-frame { width: 100%; aspect-ratio: 3/4; background: linear-gradient(160deg, var(--azul-claro), var(--azul)); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; overflow: hidden; position: relative; border-radius: 2px; }
+  .sobre-frame::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 30%, rgba(201,168,76,0.1), transparent 60%); }
+  .sobre-corner { position: absolute; width: 2.5rem; height: 2.5rem; border-color: var(--dorado); border-style: solid; }
+  .sobre-corner.tl { top: -8px; left: -8px; border-width: 1px 0 0 1px; }
+  .sobre-corner.br { bottom: -8px; right: -8px; border-width: 0 1px 1px 0; }
+  .sobre-badge { position: absolute; bottom: -1rem; right: -1rem; background: var(--dorado); color: var(--azul); padding: 1rem 1.2rem; text-align: center; box-shadow: 0 6px 20px rgba(201,168,76,0.35); }
+  .badge-n { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; line-height: 1; }
+  .badge-t { font-size: 0.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
+  .sobre-contenido { padding-left: 1rem; }
+  .sobre-nombre { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; color: var(--azul); line-height: 1.2; margin-bottom: 0.3rem; }
+  .sobre-cargo-txt { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dorado); font-weight: 600; margin-bottom: 2rem; }
+  .sobre-bio { font-size: 0.88rem; line-height: 2; color: var(--gris); margin-bottom: 1.5rem; font-weight: 300; }
+  .sobre-datos { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2.5rem; }
+  .sdato { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.82rem; color: var(--texto); }
+  .sdato::before { content: '◆'; color: var(--dorado); font-size: 0.4rem; margin-top: 0.4rem; flex-shrink: 0; }
+
+  /* MODALIDADES */
+  #modalidades { padding: 6rem 5rem; background: var(--azul); position: relative; overflow: hidden; }
+  #modalidades::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.06), transparent 60%); }
+  .modal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 4rem; position: relative; z-index: 1; }
+  .modal-card { border: 1px solid rgba(201,168,76,0.15); padding: 2.5rem 2rem; text-align: center; transition: border-color 0.3s; }
+  .modal-card:hover { border-color: var(--dorado-linea); }
+  .modal-emoji { font-size: 2.5rem; margin-bottom: 1.2rem; display: block; }
+  .modal-titulo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--dorado); margin-bottom: 0.8rem; }
+  .modal-desc { font-size: 0.78rem; line-height: 1.8; color: rgba(255,255,255,0.55); font-weight: 300; }
+
+  /* EQUIPO */
+  #equipo { padding: 7rem 5rem; background: var(--blanco); }
+  .equipo-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1.5rem; margin-top: 4rem; }
+  .equipo-item { text-align: center; padding: 2rem 1rem; border: 1px solid #E8E2D8; transition: all 0.3s; }
+  .equipo-item:hover { border-color: var(--dorado-linea); background: var(--crema); }
+  .equipo-emoji { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .equipo-nombre { font-family: 'Playfair Display', serif; font-size: 0.9rem; font-weight: 600; color: var(--azul); }
+
+  /* CONTACTO */
+  #contacto { padding: 7rem 5rem; background: var(--crema); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; position: relative; }
+  #contacto::before { content: ''; position: absolute; top: 0; left: 5rem; right: 5rem; height: 1px; background: linear-gradient(to right, transparent, var(--dorado-linea), transparent); }
+  .cont-titulo { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 700; color: var(--azul); line-height: 1.2; margin-bottom: 1rem; }
+  .cont-titulo em { font-style: italic; color: var(--azul-claro); }
+  .cont-subtitulo { font-size: 0.88rem; line-height: 1.9; color: var(--gris); margin-bottom: 2.5rem; font-weight: 300; }
+  .cont-items { display: flex; flex-direction: column; gap: 1.3rem; }
+  .cont-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .cont-ico { width: 2.2rem; height: 2.2rem; border: 1px solid var(--dorado-linea); display: flex; align-items: center; justify-content: center; color: var(--dorado); font-size: 0.85rem; flex-shrink: 0; }
+  .cont-dato { font-size: 0.82rem; color: var(--texto); line-height: 1.5; }
+  .cont-dato strong { display: block; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gris); font-weight: 600; margin-bottom: 0.2rem; }
+  .form-card { background: var(--blanco); padding: 2.5rem; box-shadow: 0 4px 30px rgba(13,27,62,0.06); }
+  .form-titulo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--azul); margin-bottom: 0.3rem; }
+  .form-sub { font-size: 0.78rem; color: var(--gris); margin-bottom: 1.5rem; }
+  .fg { margin-bottom: 1rem; }
+  .fl { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--azul); display: block; margin-bottom: 0.4rem; }
+  .fi, .ft { width: 100%; background: var(--crema); border: 1px solid #DDD8CE; color: var(--texto); font-family: 'Raleway', sans-serif; font-size: 0.85rem; font-weight: 300; padding: 0.85rem 1rem; outline: none; transition: border-color 0.3s; resize: none; }
+  .fi:focus, .ft:focus { border-color: var(--dorado-linea); }
+  .ft { height: 100px; }
+  .fb { width: 100%; background: var(--azul); color: var(--blanco); border: none; font-family: 'Raleway', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 1rem; cursor: pointer; transition: background 0.3s; margin-top: 0.5rem; }
+  .fb:hover { background: var(--azul-claro); }
+  .fnota { font-size: 0.65rem; color: var(--gris); text-align: center; margin-top: 0.8rem; }
+
+  /* FOOTER */
+  footer { background: var(--azul); border-top: 1px solid rgba(201,168,76,0.15); padding: 2.5rem 5rem; display: flex; align-items: center; justify-content: space-between; }
+  .fl-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dorado); letter-spacing: 0.1em; }
+  .fl-legal { font-size: 0.6rem; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; }
+  .fl-slogan { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(201,168,76,0.6); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 7rem 1.5rem 3rem; }
+    .hero-right { min-height: 260px; }
+    .servicios-grid { grid-template-columns: 1fr; }
+    #sobre { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+    .sobre-contenido { padding-left: 0; }
+    .modal-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .equipo-grid { grid-template-columns: repeat(2,1fr); }
+    #servicios, #equipo, #modalidades { padding: 4rem 1.5rem; }
+    #contacto { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    .franja { padding: 1rem 1.5rem; gap: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dra. <span>Jorgelina Farías</span></div>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#sobre">El Estudio</a></li>
+    <li><a href="#modalidades">Atención</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Consultar ahora</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Estudio Jurídico · Termas de Río Hondo</div>
+    <h1 class="hero-titulo">
+      Dra. Jorgelina
+      <em>Farías</em>
+    </h1>
+    <div class="hero-cargo">Abogada · Matrícula Provincial</div>
+    <p class="hero-bajada">Asesoramiento jurídico integral en Termas de Río Hondo. Atención presencial, telefónica y por videollamada — cerca de usted sin importar la distancia.</p>
+    <div class="hero-slogan">
+      Compromiso <span class="sep">·</span> Confianza <span class="sep">·</span> Soluciones
+    </div>
+    <div class="hero-acciones">
+      <a href="#contacto" class="btn-dorado">Consultar ahora</a>
+      <a href="#servicios" class="btn-outline">Ver servicios</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-overlay"></div>
+    <div class="hero-foto-wrap">
+      <div style="font-size:4rem;color:rgba(255,255,255,0.15)">👤</div>
+      <span style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2)">Dra. Jorgelina Farías</span>
+    </div>
+    <div class="hero-ubicacion">📍 <span>Güemes 351</span> · Termas de Río Hondo, Sgo. del Estero</div>
+  </div>
+</section>
+
+<!-- FRANJA -->
+<div class="franja">
+  <span class="franja-item">Derecho Civil</span><div class="franja-sep"></div>
+  <span class="franja-item">Derecho Penal</span><div class="franja-sep"></div>
+  <span class="franja-item">Familia</span><div class="franja-sep"></div>
+  <span class="franja-item">Inmobiliario</span><div class="franja-sep"></div>
+  <span class="franja-item">Consultas por videollamada</span><div class="franja-sep"></div>
+  <span class="franja-item">Termas de Río Hondo</span>
+</div>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="sec-eyebrow">Áreas de práctica</div>
+  <h2 class="sec-titulo">Soluciones jurídicas <em>integrales</em></h2>
+  <p class="sec-intro">El estudio ofrece cobertura completa en las principales ramas del derecho, respaldada por un equipo interdisciplinario de profesionales especializados.</p>
+  <div class="servicios-grid reveal">
+    <div class="serv-card">
+      <span class="serv-emoji">⚖️</span>
+      <div class="serv-nombre">Derecho Civil y Comercial</div>
+      <p class="serv-desc">Contratos, daños y perjuicios, cobros ejecutivos, responsabilidad civil y toda clase de acciones civiles y comerciales.</p>
+    </div>
+    <div class="serv-card">
+      <span class="serv-emoji">🛡️</span>
+      <div class="serv-nombre">Derecho Penal</div>
+      <p class="serv-desc">Defensa penal integral en todas las etapas del proceso. Representación de víctimas y querellantes. Asistencia inmediata.</p>
+    </div>
+    <div class="serv-card">
+      <span class="serv-emoji">👨‍👩‍👧</span>
+      <div class="serv-nombre">Derecho de Familia</div>
+      <p class="serv-desc">Divorcios, alimentos, tenencia, régimen de visitas, sucesiones y todo lo vinculado al derecho de familia.</p>
+    </div>
+    <div class="serv-card">
+      <span class="serv-emoji">🏠</span>
+      <div class="serv-nombre">Derecho Inmobiliario</div>
+      <p class="serv-desc">Compraventa de inmuebles, locaciones, usucapión, mensura y toda gestión legal vinculada a propiedades.</p>
+    </div>
+    <div class="serv-card">
+      <span class="serv-emoji">📋</span>
+      <div class="serv-nombre">Derecho Administrativo</div>
+      <p class="serv-desc">Gestiones ante organismos públicos, reclamos administrativos y representación ante la justicia provincial.</p>
+    </div>
+    <div class="serv-card">
+      <span class="serv-emoji">🤝</span>
+      <div class="serv-nombre">Consulta inicial gratuita</div>
+      <p class="serv-desc">El primer paso es conocer su situación. Ofrecemos una consulta inicial sin cargo para evaluar juntos el mejor camino.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-foto reveal">
+    <div class="sobre-frame">
+      <div style="font-size:4rem;color:rgba(255,255,255,0.15)">👤</div>
+      <span style="font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2)">Dra. Jorgelina Farías</span>
+    </div>
+    <div class="sobre-corner tl"></div>
+    <div class="sobre-corner br"></div>
+    <div class="sobre-badge">
+      <div class="badge-n">MP 2/20</div>
+      <div class="badge-t">Matrícula<br>Provincial</div>
+    </div>
+  </div>
+  <div class="sobre-contenido reveal">
+    <div class="sec-eyebrow">El estudio</div>
+    <div class="sobre-nombre">Dra. Jorgelina<br>Farías</div>
+    <div class="sobre-cargo-txt">Abogada · Termas de Río Hondo · Santiago del Estero</div>
+    <p class="sobre-bio">Abogada con matrícula provincial, especializada en brindar asesoramiento jurídico de calidad en Termas de Río Hondo y la región. Trabaja con un equipo interdisciplinario de profesionales para ofrecer soluciones integrales a cada caso.</p>
+    <p class="sobre-bio">Su enfoque combina el rigor técnico con el trato humano y cercano — porque cada situación legal involucra personas que merecen ser escuchadas y acompañadas.</p>
+    <div class="sobre-datos">
+      <div class="sdato">Abogada · Matrícula Provincial MP 2/20</div>
+      <div class="sdato">Güemes 351 · Termas de Río Hondo, Santiago del Estero</div>
+      <div class="sdato">Atención presencial, telefónica y por videollamada</div>
+      <div class="sdato">Integrante de equipo interdisciplinario de especialistas</div>
+    </div>
+    <a href="#contacto" class="btn-dorado">Agendar consulta</a>
+  </div>
+</section>
+
+<!-- MODALIDADES -->
+<section id="modalidades">
+  <div class="sec-eyebrow" style="color:rgba(201,168,76,0.8)">Modalidades de atención</div>
+  <h2 class="sec-titulo" style="color:var(--blanco)">Cerca de usted, <em style="color:var(--dorado-claro)">siempre</em></h2>
+  <div class="modal-grid reveal">
+    <div class="modal-card">
+      <span class="modal-emoji">🏢</span>
+      <div class="modal-titulo">Presencial</div>
+      <p class="modal-desc">Atención en nuestra oficina de Güemes 351, Termas de Río Hondo. Con turno previo para brindarle toda la atención que merece.</p>
+    </div>
+    <div class="modal-card">
+      <span class="modal-emoji">📞</span>
+      <div class="modal-titulo">Telefónica</div>
+      <p class="modal-desc">Consultas por teléfono o WhatsApp para situaciones que requieren respuesta rápida o para quienes están fuera de la ciudad.</p>
+    </div>
+    <div class="modal-card">
+      <span class="modal-emoji">💻</span>
+      <div class="modal-titulo">Videollamada</div>
+      <p class="modal-desc">Atención jurídica moderna y accesible sin importar la distancia. Tan efectiva como la presencial, desde la comodidad de su hogar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section id="equipo">
+  <div class="sec-eyebrow">Equipo interdisciplinario</div>
+  <h2 class="sec-titulo">Profesionales que <em>respaldan</em> su caso</h2>
+  <p class="sec-intro">Contamos con un equipo de especialistas que trabajan de forma coordinada para ofrecer soluciones integrales.</p>
+  <div class="equipo-grid reveal">
+    <div class="equipo-item"><span class="equipo-emoji">⚖️</span><div class="equipo-nombre">Derecho</div></div>
+    <div class="equipo-item"><span class="equipo-emoji">🧠</span><div class="equipo-nombre">Psicología</div></div>
+    <div class="equipo-item"><span class="equipo-emoji">🏗️</span><div class="equipo-nombre">Ingeniería</div></div>
+    <div class="equipo-item"><span class="equipo-emoji">📐</span><div class="equipo-nombre">Agrimensura</div></div>
+    <div class="equipo-item"><span class="equipo-emoji">🏠</span><div class="equipo-nombre">Inmobiliaria</div></div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="reveal">
+    <div class="sec-eyebrow">Contacto</div>
+    <h2 class="cont-titulo">Hablemos de <em>su caso</em></h2>
+    <p class="cont-subtitulo">La consulta inicial es gratuita y sin compromiso. Atendemos en Termas de Río Hondo y también por videollamada desde cualquier lugar.</p>
+    <div class="cont-items">
+      <div class="cont-item">
+        <div class="cont-ico">✆</div>
+        <div class="cont-dato"><strong>Teléfono / WhatsApp</strong>+54 9 3856 986571<br>+54 9 3858 585490</div>
+      </div>
+      <div class="cont-item">
+        <div class="cont-ico">◎</div>
+        <div class="cont-dato"><strong>Dirección</strong>Güemes 351 · Termas de Río Hondo<br>Santiago del Estero</div>
+      </div>
+      <div class="cont-item">
+        <div class="cont-ico">💻</div>
+        <div class="cont-dato"><strong>Atención remota</strong>Telefónica y videollamada disponible</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-card reveal">
+    <div class="form-titulo">Consultar ahora</div>
+    <div class="form-sub">Primera consulta sin costo y sin compromiso</div>
+    <div class="fg"><label class="fl">Nombre completo</label><input type="text" class="fi" placeholder="Su nombre y apellido"></div>
+    <div class="fg"><label class="fl">Teléfono / WhatsApp</label><input type="text" class="fi" placeholder="Su número de contacto"></div>
+    <div class="fg">
+      <label class="fl">Área de consulta</label>
+      <select class="fi">
+        <option value="">Seleccione un área</option>
+        <option>Derecho Civil / Comercial</option>
+        <option>Derecho Penal</option>
+        <option>Derecho de Familia</option>
+        <option>Derecho Inmobiliario</option>
+        <option>Derecho Administrativo</option>
+        <option>Otro</option>
+      </select>
+    </div>
+    <div class="fg"><label class="fl">Su consulta</label><textarea class="ft" placeholder="Cuéntenos brevemente su situación..."></textarea></div>
+    <button class="fb">Enviar consulta →</button>
+    <p class="fnota">🔒 Su información es confidencial · Consulta inicial gratuita</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl-logo">Dra. Jorgelina Farías</div>
+  <div class="fl-legal">© 2026 · Estudio Jurídico · Termas de Río Hondo · Sgo. del Estero</div>
+  <div class="fl-slogan">Compromiso · Confianza · Soluciones</div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*80); });
+  }, {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+<a href="https://wa.me/5491128610134" target="_blank" title="WhatsApp" style="position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:999;text-decoration:none"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.527 5.845L0 24l6.332-1.506A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.001-1.368l-.36-.214-3.728.887.916-3.618-.235-.373A9.818 9.818 0 1112 21.818z"/></svg></a></body>
+</html>
